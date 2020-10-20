@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Title</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+        <div class="container">
+
+            <nav class="nav">
+                <div class="container">
+                    <div class="menu">
+                        <ul class="left-menu">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="">Categories</a>
+                            </li>
+                            
+                        </ul>
+    
+                    
+    
+                        <ul class="right-menu">
+                            <li>
+                                <a href="">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fab fa-medium"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+			<div class="blog-post">
+				<h1 class="post-title">
+					JS Array sort() Method.<span>September 2, 2020</span>
+				</h1>
+				<img src="images/carbon.png" loading="lazy" alt="Title" />
+				<p>
+					This method sorts the elements of an array in ascending order by
+					default. It converts the elements from the array to strings then
+					compares their sequences of utf-16 code values. For an array of
+					strings, this works perfectly fine. However, to sort an array of
+					numbers, this method will not work as expected because it converts the
+					elements to strings first. To achieve what you expect, you can provide
+					a compare function as a callback to the sort method. There are 3
+					possible outcomes in the callback function:
+					<br />
+					{"<"} : a comes first <br /> 0 : no change
+					<br />
+					{">"} 0 : b comes first
+					<br /> If you want to sort in descending order, you can return b - a
+					in the callback function.
+				</p>
+			</div>
+		</div>
+
+    
+</body>
+</html>
