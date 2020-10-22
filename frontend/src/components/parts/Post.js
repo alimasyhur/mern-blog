@@ -4,8 +4,8 @@ import Pagination from "./Pagination";
 
 const Post = () => {
   return (
-    <div class="col-lg-8">
-      <div class="blog-box list-style">
+    <div className="col-lg-8">
+      <div className="blog-box list-style">
         <PostItem />
         <PostItem />
         <PostItem />

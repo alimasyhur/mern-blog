@@ -10,9 +10,9 @@ const Category = () => {
     <>
       <Header />
       <Breadcrumb />
-      <section class="blog-section">
-        <div class="container">
-          <div class="row">
+      <section className="blog-section">
+        <div className="container">
+          <div className="row">
             <Post />
             <Sidebar />
           </div>
