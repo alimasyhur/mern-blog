@@ -10,6 +10,10 @@ const post = mongoose.Schema({
         type: String,
         required: true,
     },
+    numOfLikes: {
+        type: Number,
+        required: false,
+    },
     imgUrl: {
         type: String,
         required: true,
