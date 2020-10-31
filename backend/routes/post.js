@@ -15,19 +15,45 @@ router.get("/posts", (req, res) => {
     })
 });
 
+router.get("/posts/trendings", (req, res) => {
+  Post.find()
+    .sort({ numOfLikes: -1 })
+    .populate("category", "_id name")
+    .then((posts) => {
+      res.json({ posts });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
+router.get("/posts/fresh-stories", (req, res) => {
+  Post.find()
+    .sort({ _id: -1 })
+    .limit(3)
+    .populate("category", "_id name")
+    .then((posts) => {
+      res.json({ posts });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
 router.post("/posts", (req, res) => {
-  const { title, description, imgUrl, category } = req.body;
-  if ( !title, !description, !imgUrl, !category ) {
+  const { title, description, numOfLikes, imgUrl, category } = req.body;
+  if ( !title || !description || !imgUrl || !category ) {
       res.json({err: 'All fields are required'});
   }
 
   Category.findOne({ _id: category.id })
     .then((cat) => {
         const post = new Post({
-            title,
-            description,
-            imgUrl,
-            category: cat.id,
+          title,
+          description,
+          numOfLikes,
+          imgUrl,
+          category: cat.id,
         });
 
         post.save()
