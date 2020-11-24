@@ -13,6 +13,16 @@ router.get("/categories", (req, res) => {
       });
 });
 
+router.get("/categories/count", (req, res) => {
+    Category.count()
+      .then((count) => {
+        res.json({ categories: { count } });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+});
+
 router.post("/categories", (req, res) => {
   const { name } = req.body;
   if ((!name)) {

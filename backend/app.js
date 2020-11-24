@@ -19,10 +19,12 @@ mongoose.connection.on("error", (err) => {
 
 require("./models/post");
 require('./models/category');
+require('./models/comment');
 
 app.use(express.json());
 app.use(require('./routes/post'));
 app.use(require('./routes/category'));
+app.use(require('./routes/comment'));
 
 app.listen(PORT, () => {
   console.log("App listening on port " + PORT);

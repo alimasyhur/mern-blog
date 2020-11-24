@@ -40,8 +40,19 @@ router.get("/posts/fresh-stories", (req, res) => {
     });
 });
 
+router.get("/posts/featured", (req, res) => {
+  Post.find({ isFeatured: true })
+    .populate("category", "_id name")
+    .then((posts) => {
+      res.json({ posts });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
 router.post("/posts", (req, res) => {
-  const { title, description, numOfLikes, imgUrl, category } = req.body;
+  const { title, description, numOfLikes, imgUrl, category, isFeatured } = req.body;
   if ( !title || !description || !imgUrl || !category ) {
       res.json({err: 'All fields are required'});
   }
@@ -52,6 +63,7 @@ router.post("/posts", (req, res) => {
           title,
           description,
           numOfLikes,
+          isFeatured,
           imgUrl,
           category: cat.id,
         });

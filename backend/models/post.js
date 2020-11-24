@@ -12,7 +12,11 @@ const post = mongoose.Schema({
     },
     numOfLikes: {
         type: Number,
-        required: false,
+        default: 0,
+    },
+    isFeatured: {
+        type: Boolean,
+        default: false,
     },
     imgUrl: {
         type: String,
