@@ -79,4 +79,20 @@ router.post("/posts", (req, res) => {
 
 });
 
+router.post("/posts/search/:str", (req, res) => {
+  const { str } = req.params;
+
+  if (!str) {
+    res.json({ err: 'Nothing is searched' });
+  }
+
+  Post.find({ $text: { $search: str } })
+  .then((post) => {
+    res.json({ msg: 'Found', post });
+  })
+  .catch((err) => {
+    res.json({ error: err });
+  });
+});
+
 module.exports = router;
